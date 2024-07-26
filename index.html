@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Google fonts - Gabarito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Noto+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+       
+        <div class="quiz-section">
+            <h1>Simple Quiz</h1>
+            <div id="quizBlock1">
+                <h2>How many Chambers does a heart have?</h2>
+                <input type="radio" name="quiz1" value="Five"> Five<br>
+                <input type="radio" name="quiz1" value="Four"> Four<br>
+                <input type="radio" name="quiz1" value="Three"> Three<br>
+                <input type="radio" name="quiz1" value="Seven"> Seven<br>
+            </div>
+    
+            <div id="quizBlock2">
+                <h2>What is the currency name of Dubai?</h2>
+                <input type="radio" name="quiz2" value="Rupees"> Rupees<br>
+                <input type="radio" name="quiz2" value="Yen"> Yen<br>
+                <input type="radio" name="quiz2" value="Dollers"> Dollers<br>
+                <input type="radio" name="quiz2" value="Dirhams"> Dirhams<br>
+            </div>
+    
+            <div id="quizBlock3">
+                <h2>Odd one Out?</h2>
+                <input type="radio" name="quiz3" value="Platinum"> Platinum<br>
+                <input type="radio" name="quiz3" value="Oxygen"> Oxygen<br>
+                <input type="radio" name="quiz3" value="Iron"> Iron<br>
+                <input type="radio" name="quiz3" value="Aluminium"> Aluminium
+            </div>
+            <!-- <button id="next">Next</button> -->
+            <button id="submit">Submit</button>
+            <h2 id="urScore"></h2>
+        </div>
+    </div>
+
+    <script>
+
+
+        //Selecting all 3 quiz radio buttons
+        var Quiz1=document.getElementsByName("quiz1");
+        var Quiz2=document.getElementsByName("quiz2");
+        var Quiz3=document.getElementsByName("quiz3");
+
+        //Showing result
+        var urScore=document.getElementById("urScore");
+
+        //selecting action buttons 
+        var submit=document.getElementById("submit");
+        var score=0;
+
+       
+
+
+        
+        for(i=0;i<4;i++){
+            //quiz1
+            Quiz1[i].addEventListener("click",function(){
+                console.log(event.target.value);
+                if(event.target.value=="Four"){
+                    score=score+1;
+                }
+                console.log(score);                
+            })
+            //quiz2
+            Quiz2[i].addEventListener("click",function(){
+                console.log(event.target.value);
+                if(event.target.value=="Dirhams"){
+                    score=score+1;
+                } 
+                console.log(score);               
+            })
+
+            //quiz3
+            Quiz3[i].addEventListener("click",function(){
+                console.log(event.target.value);
+                if(event.target.value=="Oxygen"){
+                    score=score+1;
+                }
+                console.log(score);           
+            })
+               
+        }
+
+        submit.addEventListener("click",function(){
+            urScore.textContent="Your Score is :"+ score;
+        })
+
+    
+    
+    </script>
+</body>
+</html>
